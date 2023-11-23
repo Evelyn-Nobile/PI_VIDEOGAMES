@@ -1,0 +1,34 @@
+html{
+
+ cursor: url("/client/public/assets/cursor.png"); 
+
+
+}
+
+/*colores */
+:root {
+    --yellow: #F2E205;
+    --yellow-orange:#F2CB05;
+    --light-orange: #F29F05;
+
+    --main-orange: #F27405;
+    -main-yellow: #FFFF00;
+    --main-red: #FF0000;
+    --main-blue: #0000FF;
+    --main-green: #00FF00; 
+
+    --black: #0D0D0D;
+    --white: #FFFFFF;
+
+    --button-font: 'VT323', monospace;
+    --title-font: 'Russo One', sans-serif;
+    --retro-font: 'Press Start 2P', cursive;
+    --text-font: 'Roboto Mono', monospace;
+  }
+
+  /* fuentes */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');/*P2P*/
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap'); /*RUSSO ONE*/
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap'); /*VT323*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap'); /*ROBOTO MONO*/

@@ -1,0 +1,15 @@
+.backButton {
+    padding: 10px;
+    background: linear-gradient(90deg, rgba(242,226,5,1) 0%, rgba(242,203,5,1) 35%, rgba(242,159,5,1) 100%);
+    border: 2px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px;
+    font-family: var(--retro-font);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.8);
+  }
+  
+  .backButton:hover {
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  }

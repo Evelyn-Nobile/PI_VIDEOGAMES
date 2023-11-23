@@ -1,0 +1,85 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .detailsSection {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .detailsSection h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-family: var(--title-font);
+    color: var(--main-red)
+  }
+  
+  .detailsSection img {
+    max-width: 100%;
+    width: 300px ;
+    height: 300px;
+    border-radius: 8px;
+    border: 4px solid #000;
+  }
+  
+  .detailsSection p {
+    margin-bottom: 5px;
+    font-family: var(--retro-font);
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 17px;
+  }
+
+ @keyframes borderGradient {
+    0% {
+      border-image: linear-gradient(45deg, #F29F05,  #ffff00, #FF0000);
+      border-image-slice: 20; /* Define el ancho del borde */
+    }
+    100% {
+        border-image: linear-gradient(45deg,#FF0000, #F29F05,  #ffff00 );
+      border-image-slice: 20; /* Define el ancho del borde */
+    }
+}
+
+
+
+   
+
+  .description {
+    width: 68rem;
+    padding: 10px; 
+    border: 2.5px solid;    
+    border-image-slice: 1; 
+    animation: borderGradient 1s linear infinite;
+  }
+   
+ .backButtonDetails{
+    margin-top: 1rem;
+    margin-left: 25rem;
+ }
+   
+/* mobile */
+@media (max-width: 600px) {
+  .description {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .backButtonDetails {
+    margin-left: 0;
+  }
+}
+
+/* tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .description {
+    width: 50%;
+    max-width: 50%;
+  }
+}

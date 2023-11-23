@@ -1,0 +1,164 @@
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 5rem;
+  }
+  
+  .formTitle {
+    text-align: center;
+    font-family: var(--title-font);
+  }
+  
+ .formContainer input {
+    margin-bottom: 15px;
+  }
+  
+  .formContainer label {
+    font-weight: bold;
+    font-family: var(--title-font);
+  }
+  
+  .formContainer 
+  input,
+  textarea,
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  select {
+    cursor: pointer;
+  }
+  
+  .formContainer p {
+    color: red;
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
+  
+  .buttonsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+   
+  }
+
+  .buttonSubmit {
+    background-color: #F2E205;  
+    padding: 10px;  
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px;
+    font-family: var(--retro-font);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.8);
+  }
+  
+  .buttonReset {
+    padding: 10px;  
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10px;
+    font-family: var(--retro-font);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.8);
+  background-color: var(--main-red);
+    
+  }
+
+  .buttonSubmit:hover, .buttonReset:hover {
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  }
+  .buttonSubmit:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+
+  
+  .formCheckbox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;    
+    gap: 1.2rem;
+ 
+  
+  }
+
+ 
+  .formCheckbox label {
+    margin-bottom: 5px;
+  }
+
+  .formCheckbox div {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-right: 2rem;
+    width: 105px;
+  
+    
+  }
+  .checkText{
+width: 105px;
+  }
+
+.labelContainer{
+    display: flex;
+    gap: 5rem;
+}
+
+.closeButton{
+  border: none;
+  background: transparent;
+}
+
+/* mobile */
+@media (max-width: 600px) {
+  .formContainer {
+    padding: 0 20px; 
+  }
+
+  .buttonsContainer {
+    gap: 1rem; 
+  }
+
+  .buttonReset,
+  .buttonSubmit {
+    width: 100%; 
+  }
+}
+
+/* tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .formContainer {
+    padding: 0 40px; 
+  }
+
+  .buttonsContainer {
+    gap: 2rem; 
+  }
+
+  .buttonReset,
+  .buttonSubmit {
+    width: 48%; 
+  }
+}

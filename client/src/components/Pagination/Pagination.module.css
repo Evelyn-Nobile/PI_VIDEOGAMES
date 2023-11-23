@@ -1,0 +1,72 @@
+.paginationContainer{ 
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+ 
+ 
+}
+
+.pagButtons{
+    border-radius: 50%;
+    transition: background-color 0.2s ease-in-out;
+    padding: 0;
+    border: none;
+    background: none;
+    
+}
+
+.pagButtons:active{
+    transform: translateY(2px);
+}
+
+ /* Estilos para cuando el botón está deshabilitado */
+.pagButtons:disabled {
+ 
+  filter: grayscale(100%); /* Hace la imagen completamente gris */
+  
+cursor: not-allowed; /* Cambia el cursor a 'no permitido' cuando está deshabilitado */
+}
+
+.pagButtons:active:disabled {
+  transform: translateY(0); /* Desactiva el efecto de clic cuando está deshabilitado */
+}
+
+
+.numberButton {  
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 25px;
+  font-family: var(--button-font);
+  border: none;
+  background: none;
+  transition: background-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+ 
+  
+  }
+  
+  /* .numberButton:hover {
+    background-color: var(--main-orange);
+    opacity: 0.8;
+  }
+   */
+
+   /* tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .paginationContainer {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+/* mobile */
+@media (max-width: 600px) {
+  .paginationContainer {
+flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .numberButton {
+    font-size: 18px; 
+
+  }
+}

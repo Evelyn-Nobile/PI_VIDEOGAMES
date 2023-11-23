@@ -1,0 +1,69 @@
+@keyframes loadingDots {
+    0%, 20% {
+      content: ". ";
+    }
+    40% {
+      content: ". . ";
+    }
+    60% {
+      content: ". . . ";
+    }
+    80%, 100% {
+      content: ". . . . ";
+    }
+  }
+
+  
+  .loaderContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; 
+    gap: 1rem;
+  }
+
+
+  .loaderImg {   
+    height: 350px;
+    width: 400px;
+}
+
+  .loaderText {
+    color: var(--black);
+    letter-spacing: 5px;
+    font-family: var(--retro-font);
+    font-size: 1rem;
+    white-space: nowrap; /* Evita que los puntos se desplacen a la siguiente línea */
+    overflow: hidden; /* Oculta el contenido que desborda */
+  }
+  
+  .loaderText::after {
+    content: ". . ."; /* Comienza con tres puntos fijos */
+    animation: loadingDots 1.5s infinite; /* Aplica la animación infinitamente */
+  }
+  
+
+  /* tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .loaderImg {
+    height: 250px;
+    width: 300px;
+  }
+
+  .loaderText {
+    font-size: 0.8rem;
+  }
+}
+
+/* mobile */
+@media (max-width: 600px) {
+  .loaderImg {
+    height: 150px;
+    width: 200px;
+  }
+
+  .loaderText {
+    font-size: 0.6rem;
+  }
+}

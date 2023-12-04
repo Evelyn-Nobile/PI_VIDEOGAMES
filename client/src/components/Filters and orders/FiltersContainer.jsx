@@ -13,6 +13,7 @@ import {
 import style from './FilterContainer.module.css';
 
 const FilterContainer = () => {
+  
   const dispatch = useDispatch();
   const genres = useSelector((state) => state.genres);
 
@@ -136,8 +137,8 @@ const FilterContainer = () => {
           value={selectedOrigin}
         >
           <option value="all">All</option>
-          <option value="api">Games Api</option>
-          <option value="created">DataBase</option>
+          <option value="api">Existing</option>
+          <option value="created">Created</option>
         </select>
       </div>
       </div>

@@ -36,7 +36,7 @@ import { GET_VIDEOGAMES, GET_DETAILS, CLEAR_DETAILS, GET_GENRES, GET_GAME_BY_NAM
             allGamesCopy: payload,
             stateCopy:
               state.selectedGenres.length > 0
-                ? payload.filter((game) => game.genres.some((genre) => state.selectedGenres.includes(genre)))
+                ? payload.filter((game) => game.genres.some((genre) => state.selectedGenres.includes(genre))) //Actualizo la lista con los
                 : payload,
           };
     

@@ -32,16 +32,11 @@ const CardContainer = () => {
   );
   // segun generos
   const filteredGamesWithGenresAndOrigin = filteredGamesWithOrigin.filter((game) =>
-    selectedGenres.length === 0 ? true : game.genres.some((genre) => selectedGenres.includes(genre)),
+    selectedGenres.length === 0 ? true : game.genres?.some((genre) => selectedGenres.includes(genre)),
 
   );
   
   const currentGames = filteredGamesWithGenresAndOrigin.slice(indexOfFirstGame, indexOfLastGame);
-
-  
-  
- 
-  
 
   // Filtra por rating
   // const filteredGamesWithRating = filteredGamesWithOrigin.filter((game) =>

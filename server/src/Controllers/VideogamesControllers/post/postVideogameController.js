@@ -8,10 +8,24 @@ const postVideogameController = async (videogame) => { //recibo un obj videogame
 try {
 
     //Estos datos se utilizan para crear un nuevo videogame en la base de datos.
-    const { name, image, description, released, rating, genres, platforms} = videogame;
-     // Verificar si ya existe un videojuego con el mismo nombre
-   
-     
+    let { name, image, description, released, rating, genres, platforms} = videogame;
+
+      const requiredFields = ['name', 'image', 'description', 'released', 'rating', 'platforms'];
+     const missingFields = requiredFields.filter(field => !videogame[field]);
+ 
+     if (missingFields.length > 0) {
+       throw new Error(`Missing required fields: ${missingFields.join(', ')}`);
+     }
+
+      if (!genres || genres.length === 0) {
+       throw new Error('The videogame must have at least one genre.');
+     }
+      rating = parseFloat(rating)
+     if (isNaN(rating) || rating < 1 || rating > 5) {
+       throw new Error('The rating must be a number between 1 and 5.');
+    }
+    
+
      const existingGame = await Videogame.findOne({
       
        where: {

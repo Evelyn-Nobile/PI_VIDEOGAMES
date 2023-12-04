@@ -39,24 +39,27 @@ const resetForm = () => {
 
  const [errors, setErrors] = useState({})
 
-//  const validateForm = () => {
-//   const newErrors = validations(input); 
-
-//   return newErrors;
-// };
 
 
-// const handleErrors = useCallback(() => {
-//   const newErrors = validateForm();
-//   setErrors(newErrors);
-// });
-
+//--------version 1 ----------------------
 const handleErrors = useCallback(() => {
   const newErrors = validations(input);
   setErrors(newErrors);
 }, [input, setErrors]);
 
+//--------version 2 ----------------------
 
+//  const handleErrors = useCallback(
+//  (fieldName) => {
+//     const newErrors = validations(input, fieldName);
+//     setErrors((prevErrors) => ({
+//       ...prevErrors,
+//      [fieldName]: newErrors[fieldName],
+//     }));
+//     },
+//   [input]
+ 
+//  );
 
  useEffect(() => {
     dispatch(getVideogames())  
@@ -80,15 +83,28 @@ const handleErrors = useCallback(() => {
         handleErrors();
       }
     }, [handleErrors, input, touched]);
-  
-    const handleChangeInput = (event) => {
-      setTouched(true); 
-      setInput({
-        ...input,
-        [event.target.name]: event.target.value,
-      });
-    };
 
+ 
+   const handleChangeInput = (event) => {
+     setTouched(true); 
+      setInput({
+      ...input,
+       [event.target.name]: event.target.value,
+   });
+   };
+
+//--------version 2 ----------------------
+
+    // const handleChangeInput = (event) => {
+    //   setTouched(true);
+    //   const { name, value } = event.target;
+    //   setInput((prevInput) => ({
+    //     ...prevInput,
+    //     [name]: value,
+    //   }));
+    //   handleErrors(name); 
+      
+    // }
 
     const handleSubmit = async (event) => {
       event.preventDefault();
@@ -147,7 +163,7 @@ const handleErrors = useCallback(() => {
     };
     
     
-  //platforms:
+  //platforms: version checkbox
 
   // const allPlatforms = Array.from(
   //   new Set(
@@ -184,20 +200,20 @@ const handleErrors = useCallback(() => {
 
     <div>
     <label htmlFor="name">Name:</label>     
-  <input  type="text"  value={input.name} name="name" placeholder="Name" onChange={handleChangeInput} onBlur={handleErrors}/>
+  <input  type="text"  value={input.name} name="name" placeholder="Name" onChange={handleChangeInput} onBlur={() => handleErrors('name')} />
   <p>{errors.name}</p>
     </div>
 
    <div>
     <label htmlFor="image">Image Url:</label>
-    <input  type="text"  value={input.image} name="image" placeholder="URL" onChange={handleChangeInput} onBlur={handleErrors}/>
+    <input  type="text"  value={input.image} name="image" placeholder="URL" onChange={handleChangeInput} onBlur={() => handleErrors('image')}/>
     <p>{errors.image}</p>
    </div>
    </div>
 
     <div>
        <label htmlFor="description">Description:</label> 
-       <textarea name="description" value={input.description} cols="50" rows="5" onChange={handleChangeInput} onBlur={handleErrors} >
+       <textarea name="description" value={input.description} cols="50" rows="5" onChange={handleChangeInput} onBlur={() => handleErrors('description')} >
 
        </textarea>
        <p>{errors.description}</p>
@@ -207,13 +223,13 @@ const handleErrors = useCallback(() => {
 
    <div>
     <label htmlFor="released">Release Date (YYYY-MM-DD):</label>
-    <input  type="text"  value={input.released} name="released"  onChange={handleChangeInput} onBlur={handleErrors}/>
+    <input  type="text"  value={input.released} name="released"  onChange={handleChangeInput} onBlur={() => handleErrors('released')} />
     <p>{errors.released}</p>
    </div>
 
    <div>
     <label htmlFor="rating">Rating:</label>
-    <input  type="text"  value={input.rating} name="rating" placeholder="Rating" onChange={handleChangeInput} onBlur={handleErrors} />
+    <input  type="text"  value={input.rating} name="rating" placeholder="Rating" onChange={handleChangeInput} onBlur={() => handleErrors('rating')} />
     <p>{errors.rating}</p>
    </div>
 
@@ -237,7 +253,7 @@ const handleErrors = useCallback(() => {
  
  <div>
   <label htmlFor="platforms">Platforms:</label>
-  <select required onChange={(event) => handlePlatformSelect(event, 'platforms')} value={input.platforms && input.platforms.length > 0 ? 
+  <select required onBlur={() => handleErrors('platforms')} onChange={(event) => handlePlatformSelect(event, 'platforms')} value={input.platforms && input.platforms.length > 0 ? 
     input.platforms[0] : "" }>
     <option value="" hidden>
       SELECT
@@ -265,7 +281,7 @@ const handleErrors = useCallback(() => {
 
 <div>
   <label htmlFor="genres">Genres:</label>
-  <select required onChange={(event) => handleGenreSelect(event, 'genres')}  value={input.genres && input.genres.length > 0 ?
+  <select required onBlur={() => handleErrors('genres')} onChange={(event) => handleGenreSelect(event, 'genres')}  value={input.genres && input.genres.length > 0 ?
      input.genres[0] : ""}>
     <option value="" hidden>
       SELECT
